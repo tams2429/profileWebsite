@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+  <title>Siu Kei Tam</title>
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/all.css">
+  <style>
+    body {
+      font-family: helvetica;
+      margin:0;
+    }
+    p {
+      font-size: 2.5rem;
+      line-height: 0.8rem;
+      color: white;
+    }
+    .content{
+      height: 120vh;
+      background-image: linear-gradient(rgba(255, 0, 0, 0.45),rgba(0, 0, 0, 0.45)), url("https://i.imgur.com/6QEt5ul.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .profile{
+      text-align: center;
+      position: relative;
+      top: 5rem;
+    }
+    .profile .icons{
+      color: white;
+      opacity: 0.9;
+      font-size: 2rem;
+    }
+    .profile .icons i{
+      margin: 0.8rem;
+      cursor: pointer;
+    }
+    .profile .icons a:visited{
+      color: white;
+    }
+    .profile img{
+      border: 0.3rem solid black;
+      border-radius: 0.6rem;
+      width: 30vh;
+    }
+    .name{
+      color: blue; 
+    }
+    span{
+      margin-left: 0.2rem;
+      position: relative;
+      color: blue;
+    }
+    span::after{
+      content: "";
+      position: absolute;
+      top: 0.4rem;
+      width: 0.08rem;
+      height: 70%;
+      border-left: 0.1rem solid white;
+      animation: blink 0.9s infinite ease;
+    }
+    
+    @keyframes blink{
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+    }
+    
+    button{
+      font-size: 1.1rem;
+      background: black;
+      border: none;
+      border-radius: 2rem;
+      padding: 1rem 3rem;
+      cursor: pointer;
+      margin: 1.8rem;
+      color: white;
+    }
+    button:hover{
+      background: white;
+      border: none;
+      color: black;
+    }
+    
+    @media only screen and (max-width: 500px){
+      p{
+        font-size: 1.5rem;  
+      }
+      .profile{
+        top: 2.3rem; 
+      }
+      button{
+        margin: 0.9rem;
+        font-size: 0.9rem;
+        padding: 0.9rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div class="profile">
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/siu-kei-tam-9053b98a/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/tams2429"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/jlin7/"><i class="fab fa-instagram-square"></i></a>
+        </div>
+        <img src="https://i.imgur.com/oCHtX73.jpg">
+        <p>Hi, my name is <strong class="name">Siu Kei</strong></p>
+        <p>I'm a <em><span class="typing"></span></em></p>
+        <button onclick="location.href = 'mailto:tam.s.k.929292@gmail.com'">Find out more about me</button>
+      </div>
+  </div>
+  
+  <script>
+    const texts = ["Programmer", "Music Lover", "Coffee Drinker", "Whisky Enthusiast"];
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+    
+    const type = () => {
+      if(count === texts.length){
+        count = 0; 
+      }
+      
+      currentText = texts[count];
+      letter = currentText.slice(0, index++);
+      document.querySelector(".typing").textContent = letter;
+      
+      
+      if (letter.length === currentText.length){
+        count++;
+        index = 0; 
+      }
+      
+      setTimeout(type, 400);
+    };
+    
+    type();
+  </script>
+</body>
